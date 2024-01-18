@@ -8,7 +8,7 @@ const Players = () => {
   useEffect(() => {
     const getPlayers = async () => {
       axios
-        .get("http://localhost:4000/players")
+        .get(import.meta.env.VITE_SERVER_URL + "/players")
         .then((response) => {
           setAllPlayers(response.data);
           console.log(response.data);

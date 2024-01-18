@@ -8,7 +8,7 @@ const Teams = () => {
 useEffect(()=>{
   const getTeams = async () => {
     axios
-      .get("http://localhost:4000/teams")
+      .get(import.meta.env.VITE_SERVER_URL + "/teams")
       .then((response) => {
         setAllTeams(response.data);
         

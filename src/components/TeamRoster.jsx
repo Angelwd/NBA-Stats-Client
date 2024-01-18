@@ -11,7 +11,7 @@ const TeamRoster = () => {
     useEffect(()=>{
       const getRoster = async () => {
         axios
-          .get(`http://localhost:4000/player/team/${teamId}`)
+          .get(import.meta.env.VITE_SERVER_URL + `/player/team/${teamId}`)
           .then((response) => {
             console.log("Players", response.data)
             setRoster(response.data);
