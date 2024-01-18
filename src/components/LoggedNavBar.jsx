@@ -3,22 +3,22 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import TeamDropDown from "./TeamDropDown";
+import TeamDropDown from "./TeamDropDown"
+import { get } from "../services/authService";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const LoggedNavBar = () => {
   const [allTeams, setAllTeams] = useState([]);
 
-  const { logOutUser } = useContext(AuthContext)
+  const { logOutUser } = useContext(AuthContext);
 
   useEffect(() => {
     const getTeams = async () => {
-      axios
-        .get("http://localhost:4000/teams")
+      
+        get("/teams")
         .then((response) => {
           setAllTeams(response.data);
-          
         })
         .catch((err) => {
           console.log(err);
@@ -58,9 +58,9 @@ const LoggedNavBar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                
-                <Link className="nav-link active" href="#" to='/teams'>Teams</Link>
-                
+                <Link className="nav-link active" href="#" to="/teams">
+                  Teams
+                </Link>
               </li>
               <div className="dropdown">
                 <button
@@ -72,9 +72,9 @@ const LoggedNavBar = () => {
                   Search players by team
                 </button>
                 <ul className="dropdown-menu">
-                {allTeams.map((team) => (
-                  <TeamDropDown key={team.id} team={team} />
-                ))}
+                  {allTeams.map((team) => (
+                    <TeamDropDown key={team.id} team={team} />
+                  ))}
                 </ul>
 
                 {/* <ul class="dropdown-menu">
@@ -253,7 +253,9 @@ const LoggedNavBar = () => {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-              <button className="btn btn-danger" onClick={logOutUser}>Logout</button>
+              <button className="btn btn-danger" onClick={logOutUser}>
+                Logout
+              </button>
             </form>
           </div>
         </div>
