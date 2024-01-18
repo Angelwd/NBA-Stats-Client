@@ -2,6 +2,8 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 
+import LoggedNavbar from "./components/LoggedNavBar";
+
 import { useContext } from "react";
 
 import { AuthContext } from "./context/auth.context";
@@ -16,6 +18,12 @@ import Home from "./pages/Home";
 
 import Profile from "./pages/Profile";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Teams from "./components/Teams";
+import PlayerProfile from "./components/PlayerProfile";
+import TeamRoster from "./components/TeamRoster";
+
 function App() {
   const { getToken } = useContext(AuthContext);
 
@@ -28,7 +36,9 @@ function App() {
   };
   return (
     <>
-      <Navbar />
+      {getToken() ? <LoggedNavbar /> : <Navbar />}
+
+      {/* <Teams /> */}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -41,6 +51,10 @@ function App() {
 
         <Route element={<IsLoggedIn />}>
           <Route path="profile" element={<Profile />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/teams/:id" element={<Teams />} />
+          <Route path="/TeamRoster/:teamId" element={<TeamRoster />} />
+          <Route path="/PlayerProfile/:playerId" element={<PlayerProfile />} />
         </Route>
       </Routes>
     </>

@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const Navbar = () => {
   const { logOutUser, getToken } = useContext(AuthContext);
 
   return (
+
+
+    
     <nav>
-      <Link to="/">Home</Link>
+      
       {!getToken() && (
         <>
           <Link to="/login">Login</Link>
@@ -18,7 +23,7 @@ const Navbar = () => {
       {getToken() && (
         <>
           <Link to="/profile">Profile</Link>
-          <button onClick={logOutUser}>Logout</button>
+          <button className="btn btn-danger" onClick={logOutUser}>Logout</button>
         </>
       )}
     </nav>
@@ -26,3 +31,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

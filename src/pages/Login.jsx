@@ -36,22 +36,32 @@ const handleSubmit = (e) => {
 
 return (
 <div>
-    <h1>Signup</h1>
+    <h1>Login</h1>
     <form onSubmit={handleSubmit}>
         
-        <label>
-            Email
-            <input name="email" type="email" value={user.email} onChange={handleTextInput} />
-        </label>
-        <label>
-            Password
-            <input name="password" type="password" value={user.password} onChange={handleTextInput} />
-        </label>
-
-        <button type="submit">Signup</button>
+    <div class="mb-3">
+    <label for="exampleInputemail" class="form-label">Email</label>
+    <input name="email" type="email" class="form-control" id="exampleInputPassword1" value={user.email} onChange={handleTextInput} />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" value={user.password} onChange={handleTextInput}  />
+  </div>
+  <button type="submit" class="btn btn-primary">Signin</button>
     </form>
 </div>
 )
 }
 
 export default Login
+
+
+{/* <div class="mb-3">
+    <label for="exampleInputemail" class="form-label">Email</label>
+    <input name="email" type="email" class="form-control" id="exampleInputPassword1" value={user.email} onChange={handleTextInput} />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" value={user.password} onChange={handleTextInput}  />
+  </div>
+  <button type="submit" class="btn btn-primary">Signin</button> */}

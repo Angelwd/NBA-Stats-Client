@@ -5,6 +5,8 @@ import axios from "axios";
 export const get = (path) => {
   const storedToken = localStorage.getItem("authToken");
 
+  console.log("hitting get route", path)
+
   return axios.get(SERVER_URL + path, {
     headers: { Authorization: `Bearer ${storedToken}` },
   });
