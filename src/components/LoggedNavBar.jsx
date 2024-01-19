@@ -28,9 +28,9 @@ const LoggedNavBar = () => {
   }, []);
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
+    <div style={{position: "fixed", top: "0px", left: "0px", width: "99vw"}}>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{width: "100%"}}>
+        <div className="container-fluid" style={{width: "100%", display: "flex", justifyContent: "space-around"}}>
           <a className="navbar-brand" href="#">
             NBA Stats
           </a>
@@ -45,17 +45,17 @@ const LoggedNavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link to="/" className="nav-link active" aria-current="page" href="#">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <Link className="nav-link active" to='/profile'>
                   Profile
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" href="#" to="/teams">

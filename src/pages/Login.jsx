@@ -36,18 +36,18 @@ const handleSubmit = (e) => {
 
 return (
 <div>
-    <h1>Login</h1>
+    <h6>Login</h6>
     <form onSubmit={handleSubmit}>
         
     <div class="mb-3">
-    <label for="exampleInputemail" class="form-label">Email</label>
-    <input name="email" type="email" class="form-control" id="exampleInputPassword1" value={user.email} onChange={handleTextInput} />
+    <label htmlFor="exampleInputemail" className="form-label">Email</label>
+    <input name="email" type="email" className="form-control" id="exampleInputPassword1" value={user.email} onChange={handleTextInput} />
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1" value={user.password} onChange={handleTextInput}  />
+    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+    <input name="password" type="password" className="form-control" id="exampleInputPassword1" value={user.password} onChange={handleTextInput}  />
   </div>
-  <button type="submit" class="btn btn-primary">Signin</button>
+  <button type="submit" className="btn btn-primary">Signin</button>
     </form>
 </div>
 )

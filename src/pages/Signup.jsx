@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 import { AuthContext } from "../context/auth.context"
 
-import logo from "../images/nbalogo.png"
+// import logo from "../images/nbalogo.png"
 
 const Signup = () => {
 
@@ -40,8 +40,8 @@ const Signup = () => {
 
   return (
     <div>
-        <h1>Signup</h1>
-        <div><img src={logo} alt="logo" /></div>
+        <h6>Signup</h6>
+        {/* <div><img src={logo} alt="logo" /></div> */}
 <form onSubmit={handleSubmit}>
   <div class="mb-3">
     <label for="exampleInputusername" class="form-label">Username</label>

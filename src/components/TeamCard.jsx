@@ -8,13 +8,13 @@ const TeamCard = (props) => {
     <div>
       <div className="col-xs-12 col-sm-4">
         <div className="card">
-          <Link className="img-card" to ={`/TeamRoster/${props.team._id}`}>
+          <Link className="img-card" to ={`/TeamRoster/${props.team.code}`}>
             <img src={props.team.logo} />
             </Link>
           
           <div className="card-content">
             <h4 className="card-title">
-              <Link to= {`/TeamRoster/${props.team._id}`}>{props.team.name}</Link> 
+              <Link to= {`/TeamRoster/${props.team.code}`}>{props.team.name}</Link> 
                 </h4>
 
           </div>

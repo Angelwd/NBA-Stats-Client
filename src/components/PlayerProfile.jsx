@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ProfileCard from "./ProfileCard";
 import { get } from "../services/authService";
 
-const PlayerProfile = () => {
+const PlayerProfile = ({comparison, setThisComparison}) => {
   const { playerId } = useParams();
   const [playerBio, setPlayerBio] = useState(null);
 
@@ -25,7 +25,7 @@ const PlayerProfile = () => {
     <div>
       <h1>Player Bio</h1>
 
-      {playerBio && <ProfileCard key={playerBio._id} player={playerBio} />}
+      {playerBio && <ProfileCard key={playerBio._id} player={playerBio} comparison={comparison} setThisComparison={setThisComparison} />}
     </div>
   );
 };

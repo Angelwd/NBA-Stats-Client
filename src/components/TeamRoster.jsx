@@ -1,7 +1,7 @@
 import { useState, useEffect, } from "react";
 import { useParams } from "react-router-dom";
 import PlayerCard from "./PlayerCard";
-import axios from "axios";
+import { get } from '../services/authService'
 
 const TeamRoster = () => {
 
@@ -10,8 +10,7 @@ const TeamRoster = () => {
 
     useEffect(()=>{
       const getRoster = async () => {
-        axios
-          .get(import.meta.env.VITE_SERVER_URL + `/player/team/${teamId}`)
+          get(`/player/team/${teamId}`)
           .then((response) => {
             console.log("Players", response.data)
             setRoster(response.data);

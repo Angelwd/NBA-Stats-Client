@@ -1,8 +1,56 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { get } from '../services/authService'
 import "/src/components/ProfileCard.css";
 
 const ProfileCard = (props) => {
+
+  const navigate = useNavigate()
+
+  const createComparison = () => {
+    get(`/comparisons/create/${props.player._id}`)
+      .then((response) => {
+        console.log("New Comparison", response.data);
+        props.setThisComparison(response.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const addToComparison = () => {
+    get(`/comparisons/add/${props.player._id}/${props.comparison._id}`)
+    .then((response) => {
+      console.log("Added Comparison", response.data);
+      props.setThisComparison(response.data);
+    })
+    .catch((err) => console.log(err));
+  }
+
+
+  const addPlayerToComparison = () => {
+    if (props.comparison) {
+      addToComparison()
+      navigate('/comparison')
+    } else (
+      navigate('/teams')
+    )
+  }
+
+  const createNewComparison = () => {
+
+    {
+      props && 
+        props.setThisComparison(null)
+
+
+         
+        setTimeout(() => {
+          createComparison()
+          navigate('/comparison')
+        }, 400)
+    }
+
+  }
+
   return (
     <div>
       <div className="container bootstrap snippets bootdey">
@@ -37,10 +85,10 @@ const ProfileCard = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  {/* <a href="#">
                     {" "}
                     <i className="fa fa-edit"></i> Edit profile
-                  </a>
+                  </a> */}
                 </li>
               </ul>
             </div>
@@ -171,6 +219,10 @@ const ProfileCard = (props) => {
                 </div>
               </div>
             </div> */}
+            <button onClick={() => createNewComparison()}>
+              Create new comparison
+            </button>
+            {props.comparison && <button onClick={() => addPlayerToComparison()} >Add to Comparison</button>}
           </div>
         </div>
       </div>
